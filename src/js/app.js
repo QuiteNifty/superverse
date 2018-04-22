@@ -2,15 +2,15 @@ import { MDCDialog, MDCDialogFoundation, util } from '@material/dialog';
 
 const ethicalConfig = {
   label: 'Awesome :) We\'d love to help you match your super to your values.',
-  description: 'Subscribe and we\'ll keep you updated when we build new features.'
+  description: 'Subscribe and we\'ll keep you updated when we add new features.'
 };
 const feesConfig = {
   label: 'A savvy shopper! We\'re also very fee conscious.',
-  description: 'Subscribe and we\'ll keep you updated when we build new features.'
+  description: 'Subscribe and we\'ll keep you updated when we add new features.'
 };
 const strategiesConfig = {
   label: 'Your money invested your way! We\'ll make it easier to find options you want.',
-  description: 'Subscribe and we\'ll keep you updated when we build new features.'
+  description: 'Subscribe and we\'ll keep you updated when we add new features.'
 };
 
 const dialog = new MDCDialog(document.querySelector('#interest-dialog'));
