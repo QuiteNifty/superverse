@@ -23,9 +23,10 @@ $space--large: 8rem;
    Or add your statements here:
   */
 body {
-  font-family: sans-serif;
   font-size: 1em;
   text-align: center;
+
+  @extend .mdc-typography--body1;
 }
 
 // TODO: Check PostCSS
@@ -41,4 +42,23 @@ body {
 .interest-title {
   max-width: 15em;
   margin: $space--tiny auto 0;
+}
+.general-info__headline {
+  padding-bottom: $space--tiny / 2;
+  margin-right: $space--medium;
+  border-bottom: 1px solid #ddd;
+}
+.general-info__general-signup {
+  text-align: left;
+}
+.general-form-iframe {
+  width: 100%;
+  border: 0;
+}
+.general-info__get-in-touch {
+  text-align: left;
+}
+.general-info__get-in-touch-label {
+  display: inline-block;
+  min-width: 4rem;
 }

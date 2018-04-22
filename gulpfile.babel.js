@@ -21,8 +21,8 @@ gulp.task("hugo", (cb) => buildSite(cb));
 gulp.task("hugo-preview", (cb) => buildSite(cb, hugoArgsPreview));
 
 // Build/production tasks
-gulp.task("build", ["css", "js", "fonts"], (cb) => buildSite(cb, [], "production"));
-gulp.task("build-preview", ["css", "js", "fonts"], (cb) => buildSite(cb, hugoArgsPreview, "production"));
+gulp.task("build", ["css", "js", "fonts", "html"], (cb) => buildSite(cb, [], "production"));
+gulp.task("build-preview", ["css", "js", "fonts", "html"], (cb) => buildSite(cb, hugoArgsPreview, "production"));
 
 // Compile CSS with PostCSS
 gulp.task("css", () => (
@@ -55,8 +55,15 @@ gulp.task('fonts', () => (
     .pipe(browserSync.stream())
 ));
 
+// Move all html files
+gulp.task('html', () => (
+  gulp.src("./src/html/**/*")
+    .pipe(gulp.dest("./dist/html"))
+    .pipe(browserSync.stream())
+));
+
 // Development server with browsersync
-gulp.task("server", ["hugo", "css", "js", "fonts"], () => {
+gulp.task("server", ["hugo", "css", "js", "fonts", "html"], () => {
   browserSync.init({
     server: {
       baseDir: "./dist"
@@ -66,6 +73,7 @@ gulp.task("server", ["hugo", "css", "js", "fonts"], () => {
   gulp.watch("./src/css/**/*.css", ["css"]);
   gulp.watch("./src/scss/*.scss", ["js"]);
   gulp.watch("./src/fonts/**/*", ["fonts"]);
+  gulp.watch("./src/html/**/*", ["html"]);
   gulp.watch("./site/**/*", ["hugo"]);
 });
 
