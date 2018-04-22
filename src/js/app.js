@@ -21,9 +21,10 @@ const dialog = new MDCDialog(document.querySelector('#interest-dialog'));
 //   console.log('accepted');
 // });
 
-// dialog.listen('MDCDialog:cancel', function() {
-//   console.log('canceled');
-// });
+dialog.listen('MDCDialog:cancel', function() {
+  document.querySelector('#mce-EMAIL').classList.remove('mce_inline_error');
+  document.querySelector('#mce-EMAIL + .mce_inline_error').style.display = 'none';
+});
 
 function setDialog(config) {
   document.getElementById('interest-dialog-label').textContent = config.label;
