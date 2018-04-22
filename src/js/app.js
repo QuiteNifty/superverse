@@ -1,29 +1,59 @@
 import { MDCDialog, MDCDialogFoundation, util } from '@material/dialog';
 
-var ethicalDialog = new MDCDialog(document.querySelector('#interest-dialog-ethical'));
-var feesDialog = new MDCDialog(document.querySelector('#interest-dialog-fees'));
-var strategiesDialog = new MDCDialog(document.querySelector('#interest-dialog-strategies'));
+const ethicalConfig = {
+  label: 'Awesome :) We\'d love to help you match your super to your values.',
+  description: 'Subscribe and we\'ll keep you updated when we build new features.'
+};
+const feesConfig = {
+  label: 'A savvy shopper! We\'re also very fee conscious.',
+  description: 'Subscribe and we\'ll keep you updated when we build new features.'
+};
+const strategiesConfig = {
+  label: 'Your money invested your way! We\'ll make it easier to find options you want.',
+  description: 'Subscribe and we\'ll keep you updated when we build new features.'
+};
 
-// ethicalDialog.listen('MDCDialog:accept', function() {
+const dialog = new MDCDialog(document.querySelector('#interest-dialog'));
+// const feesDialog = new MDCDialog(document.querySelector('#interest-dialog-fees'));
+// const strategiesDialog = new MDCDialog(document.querySelector('#interest-dialog-strategies'));
+
+// dialog.listen('MDCDialog:accept', function() {
 //   console.log('accepted');
 // });
 
-// ethicalDialog.listen('MDCDialog:cancel', function() {
+// dialog.listen('MDCDialog:cancel', function() {
 //   console.log('canceled');
 // });
 
+function setDialog(config) {
+  document.getElementById('interest-dialog-label').textContent = config.label;
+  document.getElementById('interest-dialog-description').textContent = config.description;
+}
+function setCheckboxes(checkedId) {
+  const checkboxes = document.getElementById('interest-dialog__interest').querySelectorAll('input[type=checkbox]');
+  for (let i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].checked = checkboxes[i].id === checkedId ? true : false;
+  }
+}
+
 document.getElementById('interest-button-ethical').addEventListener('click', (e) => {
   e.preventDefault();
-  ethicalDialog.lastFocusedTarget = e.target;
-  ethicalDialog.show();
+  dialog.lastFocusedTarget = e.target;
+  setCheckboxes('mce-group[169]-169-0');
+  setDialog(ethicalConfig);
+  dialog.show();
 });
 document.getElementById('interest-button-fees').addEventListener('click', (e) => {
   e.preventDefault();
-  feesDialog.lastFocusedTarget = e.target;
-  feesDialog.show();
+  dialog.lastFocusedTarget = e.target;
+  setCheckboxes('mce-group[169]-169-1');
+  setDialog(feesConfig);
+  dialog.show();
 });
 document.getElementById('interest-button-strategies').addEventListener('click', (e) => {
   e.preventDefault();
-  strategiesDialog.lastFocusedTarget = e.target;
-  strategiesDialog.show();
+  dialog.lastFocusedTarget = e.target;
+  setCheckboxes('mce-group[169]-169-2');
+  setDialog(strategiesConfig);
+  dialog.show();
 });
