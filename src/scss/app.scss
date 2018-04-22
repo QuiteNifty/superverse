@@ -12,6 +12,7 @@ $mdc-theme-background: #fff; // White
 @import "@material/typography/mdc-typography";
 @import "@material/layout-grid/mdc-layout-grid";
 @import "@material/card/mdc-card";
+@import "@material/dialog/mdc-dialog";
 
 $space--tiny: 1rem;
 $space--small: 2rem;
@@ -38,6 +39,6 @@ body {
   padding: $space--tiny;
 }
 .interest-title {
-  margin-top: $space--tiny;
-  padding: 0 $space--medium;
+  max-width: 15em;
+  margin: $space--tiny auto 0;
 }

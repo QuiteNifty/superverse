@@ -15,6 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "@material/card": "^0.34.1",
+    "@material/dialog": "^0.34.1",
     "@material/layout-grid": "^0.34.0",
     "@material/theme": "^0.34.0",
     "@material/typography": "^0.34.0",
