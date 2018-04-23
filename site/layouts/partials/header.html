@@ -2,7 +2,7 @@
 <html lang="{{ $.Site.Language.Lang }}">
   <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    {{ if eq (getenv "HUGO_ENV") "production" }}
+    {{ if eq (getenv "NODE_ENV") "production" }}
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117928228-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
