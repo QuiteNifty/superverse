@@ -36,8 +36,15 @@ function setCheckboxes(checkedId) {
     checkboxes[i].checked = checkboxes[i].id === checkedId ? true : false;
   }
 }
+function sendEvent(label) {
+  window.gtag && window.gtag('event', 'click', {
+    'event_category': 'interest-click',
+    'event_label': label
+  });
+}
 
 document.getElementById('interest-button-ethical').addEventListener('click', (e) => {
+  sendEvent('ethical');
   e.preventDefault();
   dialog.lastFocusedTarget = e.target;
   setCheckboxes('mce-group[169]-169-0');
@@ -45,6 +52,7 @@ document.getElementById('interest-button-ethical').addEventListener('click', (e)
   dialog.show();
 });
 document.getElementById('interest-button-fees').addEventListener('click', (e) => {
+  sendEvent('fees');
   e.preventDefault();
   dialog.lastFocusedTarget = e.target;
   setCheckboxes('mce-group[169]-169-1');
@@ -52,6 +60,7 @@ document.getElementById('interest-button-fees').addEventListener('click', (e) =>
   dialog.show();
 });
 document.getElementById('interest-button-strategies').addEventListener('click', (e) => {
+  sendEvent('strategies');
   e.preventDefault();
   dialog.lastFocusedTarget = e.target;
   setCheckboxes('mce-group[169]-169-2');
