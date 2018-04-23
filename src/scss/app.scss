@@ -86,10 +86,12 @@ body {
 }
 .general-info__general-signup {
   text-align: left;
+  padding-right: $space--small;
 }
 .general-form-iframe {
   width: 100%;
   border: 0;
+  height: 400px
 }
 .general-info__get-in-touch {
   text-align: left;
