@@ -29,11 +29,39 @@ body {
   @extend .mdc-typography--body1;
 }
 
+.uvp-headline {
+  padding: 0 $space--small;
+}
+
 // TODO: Check PostCSS
+.grid__desktop-spacer {
+  display: none;
+
+  @media all and (min-width: (#{map-get($mdc-layout-grid-breakpoints, desktop)})) {
+    display: block;
+  }
+}
+.grid__tablet-spacer {
+  display: none;
+
+  @media all and (max-width: (#{map-get($mdc-layout-grid-breakpoints, desktop) - 1px})) {
+    display: block;
+  }
+}
 .interest-icon {
   > svg {
     width: 15vh;
     height: 15vh;
+  }
+
+  @media all and (max-width: (#{map-get($mdc-layout-grid-breakpoints, tablet) - 1px})) {
+    float: left;
+    width: 20%;
+
+    > svg {
+      width: 100%;
+      height: auto;
+    }
   }
 }
 .interest-content {
@@ -42,6 +70,13 @@ body {
 .interest-title {
   max-width: 15em;
   margin: $space--tiny auto 0;
+
+  @media all and (max-width: (#{map-get($mdc-layout-grid-breakpoints, tablet) - 1px})) {
+    text-align: left;
+    margin-top: $space--tiny / 2;
+    margin-left: 25%;
+    margin-left: calc(20% + #{$space--tiny});
+  }
 }
 .general-info__headline {
   padding-bottom: $space--tiny / 2;
