@@ -69,7 +69,7 @@
     (function() {
       function setHeight() {
         // Include a 20px buffer as an easy fix for margin, etc issues
-        parent.document.getElementById('general-form-iframe').style.height = document['body'].offsetHeight + 20 + 'px';
+        parent.document.getElementById('general-form-iframe').style.height = document.getElementById('mc-embedded-subscribe-form').offsetHeight + 20 + 'px';
       }
       setHeight(); // Initial
 
