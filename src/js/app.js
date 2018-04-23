@@ -37,8 +37,8 @@ function setCheckboxes(checkedId) {
   }
 }
 function sendEvent(label) {
-  window.gtag && window.gtag('event', 'click', {
-    'event_category': 'interest-click',
+  window.gtag && window.gtag('event', 'interest-click', {
+    'event_category': 'landing-page',
     'event_label': label
   });
 }
